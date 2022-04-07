@@ -12,7 +12,10 @@
 						if (termconf is not null && nvconf is not null)
 						{
 							userInput.ChangeThemeDialogue(nvconf, termconf, fileHandler);
+							Console.WriteLine("Attempted to change theme.");
 						}
+							Console.WriteLine("NO .env file, make a .env file on the project root directory.");
+						
         }
     }
 }
