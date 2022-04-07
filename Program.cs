@@ -7,16 +7,11 @@
             DotNetEnv.Env.Load();
             var termconf = Environment.GetEnvironmentVariable("TERMCONF_FILEPATH");
             var nvconf = Environment.GetEnvironmentVariable("VIMCONF_FILEPATH");
-            var fileManipulator = new FileHandler();
-            if (nvconf is not null)
-            {
-                fileManipulator.ChangeVimColorscheme(nvconf, "gruvbox");
-                fileManipulator.ReadConfigFile(nvconf);
-            }
-						if (termconf is not null)
+            var fileHandler = new FileHandler();
+						var userInput = new UserInputHandler();
+						if (termconf is not null && nvconf is not null)
 						{
-							fileManipulator.ChangeTermColorscheme(termconf, "moonfly");
-							fileManipulator.ReadConfigFile(termconf);
+							userInput.ChangeThemeDialogue(nvconf, termconf, fileHandler);
 						}
         }
     }
