@@ -39,5 +39,22 @@ namespace HelloWorld
             }
 
         }
+        public void ChangeTermColorscheme(string filePath, string theme)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                    throw new FileNotFoundException();
+
+                string[] configLines = File.ReadAllLines(@filePath);
+                var fileManipulator = new FileManipulation();
+                fileManipulator.ReplaceColorschemeLine(configLines, filePath, "colors: ", "colors: *" + theme);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found on specified file.");
+            }
+
+        }
     }
 }

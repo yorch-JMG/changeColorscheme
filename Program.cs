@@ -13,6 +13,11 @@
                 fileManipulator.ChangeVimColorscheme(nvconf, "gruvbox");
                 fileManipulator.ReadConfigFile(nvconf);
             }
+						if (termconf is not null)
+						{
+							fileManipulator.ChangeTermColorscheme(termconf, "moonfly");
+							fileManipulator.ReadConfigFile(termconf);
+						}
         }
     }
 }
